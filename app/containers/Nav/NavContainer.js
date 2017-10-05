@@ -1,11 +1,19 @@
 import React, { Component } from 'react'
 
-import { Nav } from '../../components'
-
 class NavContainer extends Component {
+
 	render() {
 		return (
-			<Nav />
+			<div className="navContainer">
+				<ul className="navbar">
+					<li>TMDB-APP</li>
+					<li>
+						<form>
+							<input type="text" placeholder="search by movie name..." onChange={this.props.changeText} />
+						</form>
+					</li>
+				</ul>
+			</div>
 		);
 	}
 }
