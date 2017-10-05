@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { apiKey } from '../utils/api'
 import NavContainer from './Nav/NavContainer'
+import Card from './Card/Card'
 
 class App extends Component {
 
@@ -61,9 +62,16 @@ class App extends Component {
 			}))
 	}
 
+	componentDidMount() {
+		this.renderData(this.state.movieId)
+	}
+
 	render() {
 		return (
-			<NavContainer changeText={this.changeText} submitQuery={this.submitQuery} />
+			<div>
+				<NavContainer changeText={this.changeText} submitQuery={this.submitQuery} />
+				<Card data={this.state.data} />
+			</div>
 		);
 	}
 }
