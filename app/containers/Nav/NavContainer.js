@@ -8,7 +8,7 @@ class NavContainer extends Component {
 				<ul className="navbar">
 					<li>TMDB-APP</li>
 					<li>
-						<form>
+						<form onSubmit={this.props.submitQuery}>
 							<input type="text" placeholder="search by movie name..." onChange={this.props.changeText} />
 						</form>
 					</li>
