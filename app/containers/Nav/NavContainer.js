@@ -6,19 +6,18 @@ class NavContainer extends Component {
 
 	render() {
 		return (
-			<div className="col-xs-12 search-container nopadding">
-        <div className="row">
-
-          <div className="col-xs-12 col-sm-6 col-lg-5">
-            <a href="./" title="ReactJS TMDb Movie Search"><img src={TMDBLogo} className="logo" alt="The Movie Database" /></a>
-          </div>
-          <div className="col-xs-12 col-sm-6 col-lg-7">
-            <form onSubmit={this.props.submitQuery}>
+			<div className="navContainer">
+				<ul className="navbar">
+					<li>
+						<a href="./" title="ReactJS TMDb Movie Search"><img src={TMDBLogo} className="logo" alt="The Movie Database" /></a>
+					</li>
+					<li>
+						<form onSubmit={this.props.submitQuery}>
 							<input type="text" placeholder="search by movie name..." onChange={this.props.changeText} />
 						</form>
-          </div>
-        </div>
-      </div>
+					</li>
+				</ul>
+			</div>
 		);
 	}
 }

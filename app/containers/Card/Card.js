@@ -11,6 +11,12 @@ class Card extends Component {
 		}
 	}
 
+	// componentDidUpdate() {
+	// 	const backdropIMG = 'https://image.tmdb.org/t/p/original' + this.props.data.backdrop_path
+
+	//   document.body.style.backgroundImage = 'url(' + backdropIMG + ')';
+	// }
+
 	render() {
 		const { data } = this.props
 
@@ -31,38 +37,38 @@ class Card extends Component {
 			spoken_languages,
 			tagline,
 			original_title,
-			vote_averages } = this.props.data
+			vote_average } = this.props.data
 
-			const genre = this.nestedString(genres)
-			const productionCompanies = this.nestedString(production_companies)
-			const productionCountries = this.nestedString(production_countries)
-
-    // const noData = '-'
-  //   const backdropIMG = 'https://image.tmdb.org/t/p/original' + data.backdrop_path
+		const genre = this.nestedString(genres)
+		const productionCompanies = this.nestedString(production_companies)
+		const productionCountries = this.nestedString(production_countries)
 
 		return (
-			<div className="col-xs-12 col-lg-10 offset-lg-1">
-				<div className="col-xs-12 cardcont nopadding">
-		      <div className="meta-data-container col-xs-12 col-md-8 push-md-4 col-lg-7 push-lg-5">
-		        <h1>{original_title}</h1>
-		        <span className="tagline">{tagline}</span>
+				<div className='container'>
+					<div className='image'>
+						<img className='poster' src={`https://image.tmdb.org/t/p/original${poster_path}`} />
+					</div>
+					<div className='dataContainer'>
+						<h1 className='title'>{original_title}</h1>
+						<span className="data">{tagline}</span>
 		        <p>{overview}</p>
-		        <div className="additional-details">
-		          <span className="genre-list">{genre}</span><br />
-		          <span className="production-list">{productionCompanies}, {productionCountries}</span>
-		          <div className="row nopadding release-details">
-		            <div className="col-xs-6"> Original Release: <span className="meta-data">{release_date}</span></div>
-		            <div className="col-xs-6"> Running Time: <span className="meta-data">{runtime} mins</span> </div>
-		            <div className="col-xs-6"> Box Office: <span className="meta-data">{revenue}</span></div>
-		            <div className="col-xs-6"> Vote Average: <span className="meta-data">{vote_averages}</span></div>
+		        <div className="details">
+							<span>{genre}</span><br />
+		          <div> Production Companies: <span className='data'>{productionCompanies}</span></div>
+		          <div> Production Countries: <span className='data'>{productionCountries}</span></div>
+		          <div className='movDetails'>
+		            <div>
+		            	<div> Original Release: <span className='data'>{release_date}</span></div>
+		            	<div> Running Time: <span className='data'>{runtime} mins</span> </div>
+		            </div>
+		            <div>
+		            	<div> Box Office: <span className='data'>{revenue}</span></div>
+		            	<div> Vote Average: <span className='data'>{vote_average} / 10</span></div>
+		            </div>
 		          </div>
 		        </div>
-		      </div>
-		      <div className="poster-container nopadding col-xs-12 col-md-4 pull-md-8 col-lg-5 pull-lg-7 ">
-		        <img className='poster' src={`https://image.tmdb.org/t/p/original${poster_path}`} />
-		      </div>
-		    </div>
-			</div>
+					</div>
+				</div>
 		);
 	}
 }
