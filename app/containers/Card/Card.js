@@ -11,11 +11,11 @@ class Card extends Component {
 		}
 	}
 
-	// componentDidUpdate() {
-	// 	const backdropIMG = 'https://image.tmdb.org/t/p/original' + this.props.data.backdrop_path
+	componentDidUpdate() {
+		const backdropIMG = 'https://image.tmdb.org/t/p/original' + this.props.data.backdrop_path
 
-	//   document.body.style.backgroundImage = 'url(' + backdropIMG + ')';
-	// }
+	  document.body.style.backgroundImage = 'url(' + backdropIMG + ')';
+	}
 
 	render() {
 		const { data } = this.props
