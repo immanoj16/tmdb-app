@@ -38,22 +38,15 @@ class App extends Component {
 
 	renderMovieName (movieName) {
 		const newMovieName = movieName.split(' ').join('+')
-		console.log(newMovieName)
 		const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${newMovieName}`
 
 		fetch(url).then(res => res.json())
-			.then(data => {
-				this.setState({
+			.then(data => this.setState({
 					movieId: data.results[0].id
-				})
-				console.log(this.state.movieId)
-			})
+				}))
 	}
 
 	renderData (movieId) {
-
-		console.log('move', movieId)
-
 		const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`
 
 		fetch(url).then(res => res.json())
